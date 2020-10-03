@@ -3,6 +3,7 @@ require("assets.track")
 
 game = {
     debug = false,
+    lost = false,
 }
 
 delta = 0.1
@@ -17,12 +18,18 @@ end
 function game:update(dt)
     delta = dt
 
-    rocket = moveRocket(rocket)
+    if not game.lost then
+        rocket = moveRocket(rocket)
+    end
 end
 
 function game:draw()
-    drawRocket()
-    drawTrack()
+    if game.lost then
+        --
+    else
+        drawRocket()
+        drawTrack()
+    end
 
     -- show collision boxes
     if game.debug then

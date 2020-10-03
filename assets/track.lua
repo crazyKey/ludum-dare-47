@@ -1,7 +1,7 @@
 function createTrack()
     track = {
         stars = {},
-        image = love.graphics.newImage("assets/star.png"),
+        image = love.graphics.newImage("assets/star-small.png"),
     }
 
     -- centre left
@@ -107,7 +107,7 @@ function createTrack()
     table.insert(track.stars, {x = 579, y = 439})
 
     for i=1, #track.stars do
-        game.world:add(track.stars[i], track.stars[i].x, track.stars[i].y, 25, 25)
+        game.world:add(track.stars[i], track.stars[i].x, track.stars[i].y, 18, 17)
     end
 
     return track
@@ -115,6 +115,6 @@ end
 
 function drawTrack()
     for i=1, #track.stars do
-        love.graphics.draw(track.image, track.stars[i].x, track.stars[i].y, 0, 1, 1, 0, 0)
+        love.graphics.draw(track.image, track.stars[i].x, track.stars[i].y, 0, 1.75, 1.75, 4, 4)
     end
 end
