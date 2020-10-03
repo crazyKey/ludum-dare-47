@@ -50,6 +50,9 @@ function moveRocket(rocket)
     -- check collision
     if len > 0 then
         game.lost = true
+
+        sfxCrash:play()
+        soundtrack:stop()
     end
 
     return rocket
