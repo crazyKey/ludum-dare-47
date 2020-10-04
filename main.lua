@@ -1,5 +1,6 @@
 gamestate = require "libraries.vrld-hump.gamestate"
 bump = require "libraries.kikito-bump.bump"
+tastytext = require "libraries.markandgo-text-lua.src.tastytext"
 
 require "game"
 

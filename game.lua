@@ -1,6 +1,7 @@
 require("assets.rocket")
 require("assets.track")
 require("assets.stars")
+require("assets.menu")
 
 game = {
     debug = false,
@@ -16,24 +17,29 @@ function game:init()
     game.rocket = createRocket()
     game.track = createTrack()
     game.stars = createStars()
+    game.menu = createMenu()
 end
 
 function game:update(dt)
     delta = dt
 
+    stars = animateStars(game.stars)
+
     if game.play then
         rocket = moveRocket(game.rocket)
     elseif game.menu then
-        stars = animateStars(game.stars)
+        closeMenu()
     end
 end
 
 function game:draw()
+    drawStars(game.stars)
+
     if game.play then
         drawRocket(game.rocket)
         drawTrack(game.track)
     elseif game.menu then
-        drawStars(game.stars)
+        drawMenu(game.menu)
     end
 
     -- show collision boxes
