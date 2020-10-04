@@ -13,14 +13,6 @@ function createRocket()
     rocket.origin_x = rocket.image:getWidth() / 2
     rocket.origin_y = rocket.image:getHeight() / 2
 
-    -- rocket speed text
-    rocket.text_tags = {
-        font  = love.graphics.newFont('fonts/SpaceAdventure.ttf', 36),
-        red     = {255,0,0,255},
-        ['/red']= {255,255,255},
-        regular = love.graphics.newFont(46),
-    }
-
     -- add rocket to world for collision
     game.world:add(rocket, rocket.x - rocket.origin_x, rocket.y - rocket.origin_y, rocket.width, rocket.height)
 
@@ -54,7 +46,7 @@ function moveRocket(rocket)
     rocket.speed = rocket.speed + 10 * delta
 
     -- check speed
-    if rocket.speed >= 465 then
+    if rocket.speed >= 165 then
         game.play = false
         game.win = true
 
@@ -79,7 +71,7 @@ end
 function drawSpeed(rocket)
     local fake_speed = rocket.speed * 400
 
-    rocket.text = tastytext.new(string.format("<font>%d miles/s", fake_speed), 1000, tags.regular, tags)
+    rocket.text = tastytext.new(string.format("<font>%d miles/s", fake_speed), 1000, game.text_tags.regular, game.text_tags)
     rocket.text.align = "center"
 
     rocket.text:draw()

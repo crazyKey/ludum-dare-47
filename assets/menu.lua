@@ -14,14 +14,7 @@ function createMenu()
         PRESS space TO START.
     ]]
 
-    tags = {
-        font  = love.graphics.newFont('fonts/SpaceAdventure.ttf', 36),
-        red     = {255,0,0,255},
-        ['/red']= {255,255,255},
-        regular = love.graphics.newFont(46),
-    }
-
-    menu.text = tastytext.new(str, 1000, tags.regular, tags)
+    menu.text = tastytext.new(str, 1000, game.text_tags.regular, game.text_tags)
     menu.text.align = "center"
 
     return menu
