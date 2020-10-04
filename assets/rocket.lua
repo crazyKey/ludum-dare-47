@@ -49,7 +49,7 @@ function moveRocket(rocket)
 
     -- check collision
     if len > 0 then
-        game.lost = true
+        game.play = false
 
         sfxCrash:play()
         soundtrack:stop()
@@ -58,6 +58,6 @@ function moveRocket(rocket)
     return rocket
 end
 
-function drawRocket()
+function drawRocket(rocket)
     love.graphics.draw(rocket.image, rocket.x, rocket.y, rocket.angle+1.5708, 1.4, 1.4, rocket.origin_x, rocket.origin_y)
 end

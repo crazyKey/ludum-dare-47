@@ -113,7 +113,7 @@ function createTrack()
     return track
 end
 
-function drawTrack()
+function drawTrack(track)
     for i=1, #track.stars do
         love.graphics.draw(track.image, track.stars[i].x, track.stars[i].y, 0, 1.75, 1.75, 4, 4)
     end
