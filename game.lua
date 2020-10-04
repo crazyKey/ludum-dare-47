@@ -37,6 +37,7 @@ function game:draw()
 
     if game.play then
         drawRocket(game.rocket)
+        drawSpeed(game.rocket)
         drawTrack(game.track)
     elseif game.menu then
         drawMenu(game.menu)
