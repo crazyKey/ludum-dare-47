@@ -4,6 +4,9 @@ function createTrack()
         image = love.graphics.newImage("assets/star-small.png"),
     }
 
+    -- just to look like a better dev, I did not wrote the following 94 lines
+    -- I generated them with some sneaky JS script
+
     -- centre left
     table.insert(track.stars, {x = 399, y = 403})
     table.insert(track.stars, {x = 386, y = 374})

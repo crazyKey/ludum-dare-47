@@ -14,8 +14,6 @@ game = {
 delta = 0.1
 
 function game:init()
-    game.world = bump.newWorld()
-
     game.text_tags = {
         font  = love.graphics.newFont('fonts/SpaceAdventure.ttf', 36),
         red     = {255,0,0,255},
@@ -23,11 +21,26 @@ function game:init()
         regular = love.graphics.newFont(46),
     }
 
+    initGame()
+end
+
+function initGame()
+    game.world = bump.newWorld()
+
     game.rocket = createRocket()
     game.track = createTrack()
     game.stars = createStars()
-    game.menu = createMenu()
+    game.menu_screen = createMenu()
     game.end_screen = createEndScreen()
+end
+
+function resetGame()
+    game.menu = true
+    game.play = false
+
+    soundtrack:play()
+
+    initGame()
 end
 
 function game:update(dt)
@@ -39,6 +52,10 @@ function game:update(dt)
         rocket = moveRocket(game.rocket)
     elseif game.menu then
         closeMenu()
+    else
+        if not game.win and love.keyboard.isDown("space") then
+            resetGame()
+        end
     end
 end
 
@@ -50,7 +67,7 @@ function game:draw()
         drawSpeed(game.rocket)
         drawTrack(game.track)
     elseif game.menu then
-        drawMenu(game.menu)
+        drawMenu(game.menu_screen)
     else
         drawEndScreen(game.end_screen)
     end

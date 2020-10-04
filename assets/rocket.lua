@@ -46,7 +46,7 @@ function moveRocket(rocket)
     rocket.speed = rocket.speed + 10 * delta
 
     -- check speed
-    if rocket.speed >= 165 then
+    if rocket.speed >= 465 then
         game.play = false
         game.win = true
 
@@ -69,6 +69,7 @@ function drawRocket(rocket)
 end
 
 function drawSpeed(rocket)
+    -- pretend to be a realistic game and display a credible speed (the speed of light is 186000 miles per second)
     local fake_speed = rocket.speed * 400
 
     rocket.text = tastytext.new(string.format("<font>%d miles/s", fake_speed), 1000, game.text_tags.regular, game.text_tags)

@@ -23,6 +23,8 @@ function createEndScreen()
         YOU FAILED THE <red>SANA</red>, THE GOVERNMENT, AND THE EARTH.
 
         YOU FAILED.
+
+        PRESS space TO TRY AGAIN.
     ]]
 
     return end_screen
